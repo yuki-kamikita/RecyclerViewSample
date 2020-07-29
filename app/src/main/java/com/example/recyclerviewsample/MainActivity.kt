@@ -23,7 +23,7 @@ class MainActivity: AppCompatActivity() {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             // コンテンツの変更によってRecyclerViewのレイアウトサイズが変更されないことがわかっている場合は、
-            // この設定を使用してパフォーマンスを向上させます。
+            // この設定を使用してパフォーマンスを向上させます
             setHasFixedSize(true)
 
             // use a linear layout manager
@@ -35,7 +35,7 @@ class MainActivity: AppCompatActivity() {
             adapter = viewAdapter
         }
     }
-
 }
 
 // 参考：https://maku77.github.io/android/ui/recycler-view.html
+// 公式：https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=ja

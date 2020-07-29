@@ -5,23 +5,23 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-// コメントなし
 class MyAdapter(private val myDataset: Array<String>):
     RecyclerView.Adapter<MyViewHolder>() {
 
+    // MyViewHolder.kt と my_text_view.xml の内容を元にViewHolderを作成する
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val textView = LayoutInflater.from(parent.context)
             .inflate(R.layout.my_text_view, parent, false)
         return MyViewHolder(textView)
     }
 
+    // ViewHolder一行ごとに描画する内容を記載
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.textView.text = myDataset[position]
-        // 複数入れる時のサンプル ここのコメントを解除
-//         holder.button.text = "Button"
+//         holder.button.text = "Button" // 複数要素入れる時のサンプル ここのコメントを解除
     }
 
-    override fun getItemCount() = myDataset.size
+    override fun getItemCount() = myDataset.size // 行数決定 Dataset なのか Item なのか ViewHolder なのかはっきりしてくれ
 }
 
 // 公式のコメントと翻訳版付き
