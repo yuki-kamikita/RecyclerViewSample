@@ -7,49 +7,35 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity: AppCompatActivity() {
 
-    // RecyclerView 本体、および、LayoutManager と Adapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var layoutManager: RecyclerView.LayoutManager
-    private lateinit var adapter: RecyclerView.Adapter<*>
-
-    // Adapter にセットするデータ (1～100)
-    private val data = IntArray(100) { it + 1 }
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
+    private var myDataset: Array<String> = arrayOf("a","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c") // 追加 表示する内容
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        layoutManager = LinearLayoutManager(this)
-        adapter = MyAdapter(data)
-        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).also {
-            it.layoutManager = layoutManager
-            it.adapter = adapter
+        viewManager = LinearLayoutManager(this)
+        viewAdapter = MyAdapter(myDataset)
+
+            recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            // コンテンツの変更によってRecyclerViewのレイアウトサイズが変更されないことがわかっている場合は、
+            // この設定を使用してパフォーマンスを向上させます。
+            setHasFixedSize(true)
+
+            // use a linear layout manager
+            // 線形レイアウトマネージャーを使用する
+            layoutManager = viewManager
+
+            // specify an viewAdapter (see also next example)
+            // viewAdapterを指定します（次の例も参照）
+            adapter = viewAdapter
         }
     }
 
-//    private val dataset = arrayOfNulls<String>(20)
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//        val recyclerView: RecyclerView = findViewById(R.id.my_recycler_view)
-//
-//        // use this setting to improve performance if you know that changes
-//        // in content do not change the layout size of the RecyclerView
-//        recyclerView.setHasFixedSize(true)
-//
-//        // use a linear layout manager
-//        val rLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-//        recyclerView.setLayoutManager(rLayoutManager)
-//        var i = 0
-//        while (i < 20) {
-//            dataset[i] = String.format(Locale.ENGLISH, "Data_0%d", i)
-//            i++
-//        }
-//
-//        // specify an adapter (see also next example)
-//        val rAdapter: RecyclerView.Adapter = MyAdapter(dataset)
-//        recyclerView.setAdapter(rAdapter)
-//    }
 }
 
 // 参考：https://maku77.github.io/android/ui/recycler-view.html
