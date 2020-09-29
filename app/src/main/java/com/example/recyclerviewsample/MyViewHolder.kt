@@ -2,6 +2,7 @@ package com.example.recyclerviewsample
 
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,6 +17,7 @@ class MyViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     val textView: TextView by lazy {
         view.findViewById<TextView>(R.id.textView)
     }
+
     // 複数入れる時のサンプル ここのコメントを解除
 //    val button: Button by lazy {
 //        view.findViewById<Button>(R.id.button)

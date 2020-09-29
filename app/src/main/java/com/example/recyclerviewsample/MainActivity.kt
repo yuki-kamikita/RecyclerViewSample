@@ -10,11 +10,16 @@ class MainActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private var myDataset: Array<String> = arrayOf("a","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c","b","c") // 追加 表示する内容
+//    private var myDataset: ArrayList<String> = arrayListOf("1", "2", "3") // 表示する内容
+    private var myDataset: ArrayList<String> = arrayListOf() // 表示する内容
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        for (i in 1..100) {
+            myDataset.add(i.toString())
+        }
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = MyAdapter(myDataset)
