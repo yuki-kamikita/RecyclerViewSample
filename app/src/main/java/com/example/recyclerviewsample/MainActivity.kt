@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity() {
 
@@ -17,6 +18,7 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 表示する内容を作成
         for (i in 1..100) {
             myDataset.add(i.toString())
         }
@@ -24,7 +26,7 @@ class MainActivity: AppCompatActivity() {
         viewManager = LinearLayoutManager(this)
         viewAdapter = MyAdapter(myDataset)
 
-            recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
+        recyclerView = recycler_view.apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             // コンテンツの変更によってRecyclerViewのレイアウトサイズが変更されないことがわかっている場合は、

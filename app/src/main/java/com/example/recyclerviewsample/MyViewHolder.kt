@@ -1,10 +1,9 @@
 package com.example.recyclerviewsample
 
 import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.my_text_view.view.*
 
 // Provide a reference to the views for each data item
 // Complex data items may need more than one view per item, and
@@ -15,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 // 各データ項目は、この場合はTextViewに表示される単なる文字列です。
 class MyViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     val textView: TextView by lazy {
-        view.findViewById<TextView>(R.id.textView)
+        view.textView
     }
 
-    // 複数入れる時のサンプル ここのコメントを解除
+    // 複数入れる時のサンプル
 //    val button: Button by lazy {
 //        view.findViewById<Button>(R.id.button)
 //    }

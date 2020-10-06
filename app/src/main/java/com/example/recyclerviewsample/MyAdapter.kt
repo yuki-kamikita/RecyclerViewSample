@@ -18,7 +18,7 @@ class MyAdapter(private val myDataset: ArrayList<String>):
     // ViewHolder一行ごとに描画する内容を記載
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.textView.text = myDataset[position]
-//        holder.button.text = "Button" // 複数要素入れる時のサンプル ここのコメントを解除
+//        holder.button.text = "Button" // 複数要素入れる時のサンプル
     }
 
     override fun getItemCount() = myDataset.size // 行数決定 Dataset なのか Item なのか ViewHolder なのかはっきりしてくれ
